@@ -1,0 +1,1149 @@
+[portfolio.html](https://github.com/user-attachments/files/27619616/portfolio.html)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lealyn Layosa - Premium Virtual Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #dc2626;
+            --secondary: #f59e0b;
+            --dark-bg: #0f172a;
+            --dark-card: #1e293b;
+            --dark-border: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1a1f3a 100%);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* Premium Typography */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        /* Smooth Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(220, 38, 38, 0.6);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .animate-fadeInDown {
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .animate-slideInRight {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .animate-stagger > * {
+            animation: fadeInUp 0.8s ease-out;
+            opacity: 0;
+        }
+
+        .animate-stagger > *:nth-child(1) { animation-delay: 0.1s; opacity: 1; }
+        .animate-stagger > *:nth-child(2) { animation-delay: 0.2s; opacity: 1; }
+        .animate-stagger > *:nth-child(3) { animation-delay: 0.3s; opacity: 1; }
+        .animate-stagger > *:nth-child(4) { animation-delay: 0.4s; opacity: 1; }
+        .animate-stagger > *:nth-child(5) { animation-delay: 0.5s; opacity: 1; }
+        .animate-stagger > *:nth-child(6) { animation-delay: 0.6s; opacity: 1; }
+
+        /* Premium Buttons */
+        .btn-premium {
+            position: relative;
+            overflow: hidden;
+            padding: 14px 32px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, #b91c1c 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(220, 38, 38, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Premium Cards */
+        .premium-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .premium-card:hover {
+            border-color: rgba(220, 38, 38, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(220, 38, 38, 0.1);
+        }
+
+        .premium-card:hover::before {
+            left: 100%;
+        }
+
+        /* Navigation */
+        nav {
+            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.8);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        nav a {
+            position: relative;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -300px;
+            right: -300px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -250px;
+            left: -250px;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-30px) translateX(20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 240px;
+            height: 280px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+            box-shadow: 0 20px 60px rgba(220, 38, 38, 0.3);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.2) 0%, transparent 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInDown 0.8s ease-out 0.2s both;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        section h2 {
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .section-accent {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            position: relative;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, #10b981 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(-5deg);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .tool-badge {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .tool-badge:hover {
+            background: rgba(220, 38, 38, 0.2);
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.15);
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            group;
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(245, 158, 11, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            border: 1px solid rgba(148, 163, 184, 0.15);
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.05);
+            border-color: rgba(220, 38, 38, 0.3);
+        }
+
+        .portfolio-details {
+            padding: 1.5rem;
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .portfolio-details h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .portfolio-details p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            background: rgba(220, 38, 38, 0.2);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Testimonials */
+        .testimonial-slider {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            position: relative;
+            padding: 2rem;
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(220, 38, 38, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(220, 38, 38, 0.1);
+        }
+
+        .testimonial-quote {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            opacity: 0.6;
+        }
+
+        .testimonial-text {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+        }
+
+        .author-info h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 3rem auto 0;
+            text-align: center;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .form-group label {
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+            color: var(--text-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+            background: rgba(30, 41, 59, 0.9);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 23, 42, 0.8);
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(220, 38, 38, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 1px solid rgba(220, 38, 38, 0.3);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        /* Utility Classes */
+        .container-wide {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .hero-image-wrapper {
+                width: 200px;
+                height: 240px;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            nav {
+                padding: 1rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+        }
+
+        /* Scroll animation trigger */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="py-4">
+        <div class="container-wide px-4">
+            <div class="flex justify-between items-center flex-wrap">
+                <div class="text-2xl font-bold text-gradient">LL</div>
+                <div class="flex gap-8 flex-wrap justify-center">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#tools">Tools</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-image-wrapper">
+                <img src="L1.jpg" alt="Lealyn Layosa - Virtual Assistant" class="hero-photo">
+            </div>
+            <h1 class="animate-fadeDown">Lealyn Layosa</h1>
+            <p class="hero-subtitle">Premium Virtual Assistant Services</p>
+            <p class="text-lg text-secondary mb-8 animate-slideInLeft" style="color: var(--text-secondary); animation-delay: 0.3s;">
+                Elevating your business through executive support, e-commerce excellence, and strategic lead generation. Trusted by ambitious entrepreneurs and established brands.
+            </p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn-premium btn-primary">Get Started</a>
+                <a href="#services" class="btn-premium btn-secondary">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-opacity-50">
+        <div class="container-wide max-w-3xl">
+            <span class="section-accent">About Me</span>
+            <h2>Personal Introduction</h2>
+            
+            <div class="mt-8 space-y-6">
+                <div class="premium-card scroll-animate">
+                    <p class="text-lg leading-relaxed">
+                        Hello! I'm Lealyn Layosa, a dedicated Virtual Assistant with a passion for helping visionary entrepreneurs and businesses scale their operations efficiently.
+                    </p>
+                </div>
+
+                <div class="premium-card scroll-animate">
+                    <p class="leading-relaxed">
+                        With years of experience in executive support, e-commerce optimization, and strategic lead generation, I've developed a comprehensive skill set to address diverse business challenges. My approach combines meticulous attention to detail with innovative problem-solving.
+                    </p>
+                </div>
+
+                <div class="premium-card scroll-animate">
+                    <p class="leading-relaxed">
+                        I believe that exceptional virtual assistance goes beyond task management—it's about understanding your vision, anticipating your needs, and delivering results that directly impact your bottom line. Whether you're a startup founder or an established business, I'm committed to becoming an indispensable part of your success story.
+                    </p>
+                </div>
+
+                <div class="premium-card scroll-animate">
+                    <p class="text-center text-lg text-gradient font-semibold">
+                        Let's transform your business together.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container-wide">
+            <span class="section-accent justify-center inline-block w-full text-center">Services</span>
+            <h2>What I Offer</h2>
+
+            <div class="services-grid animate-stagger">
+                <!-- Executive Virtual Assistant -->
+                <div class="premium-card">
+                    <div class="service-icon">👔</div>
+                    <h3>Executive Virtual Assistant</h3>
+                    <p>
+                        Comprehensive executive support including calendar management, email coordination, meeting preparation, research, and strategic planning. I ensure your leadership is optimized for high-impact decision making.
+                    </p>
+                    <ul class="mt-4 space-y-2 text-sm text-secondary">
+                        <li>✓ Calendar & Schedule Optimization</li>
+                        <li>✓ Email & Communication Management</li>
+                        <li>✓ Meeting Coordination</li>
+                        <li>✓ Executive Reporting</li>
+                    </ul>
+                </div>
+
+                <!-- E-Commerce VA -->
+                <div class="premium-card">
+                    <div class="service-icon">🛍️</div>
+                    <h3>E-Commerce VA</h3>
+                    <p>
+                        Specialized support for online stores including product management, order fulfillment coordination, inventory optimization, and customer service excellence. Maximize your revenue potential.
+                    </p>
+                    <ul class="mt-4 space-y-2 text-sm text-secondary">
+                        <li>✓ Product Listing Management</li>
+                        <li>✓ Order Processing</li>
+                        <li>✓ Inventory Coordination</li>
+                        <li>✓ Customer Service</li>
+                    </ul>
+                </div>
+
+                <!-- Lead Generation -->
+                <div class="premium-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Lead Generation</h3>
+                    <p>
+                        Strategic lead generation and outreach to fuel your sales pipeline. I identify qualified prospects, manage campaigns, and nurture leads through proven systems and methodologies.
+                    </p>
+                    <ul class="mt-4 space-y-2 text-sm text-secondary">
+                        <li>✓ Prospect Research</li>
+                        <li>✓ Outreach Campaigns</li>
+                        <li>✓ Lead Nurturing</li>
+                        <li>✓ Pipeline Management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools & Software Section -->
+    <section id="tools">
+        <div class="container-wide">
+            <span class="section-accent justify-center inline-block w-full text-center">Tech Stack</span>
+            <h2>Tools & Software</h2>
+
+            <div class="tools-grid animate-stagger">
+                <div class="tool-badge scroll-animate">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">📅</div>
+                    <span>Calendly</span>
+                </div>
+                <div class="tool-badge scroll-animate">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">📧</div>
+                    <span>Gmail</span>
+                </div>
+                <div class="tool-badge scroll-animate">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">📊</div>
+                    <span>Asana</span>
+                </div>
+                <div class="tool-badge scroll-animate">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">💬</div>
+                    <span>Slack</span>
+                </div>
+                <div class="tool-badge scroll-animate">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">📱</div>
+                    <span>HubSpot</span>
+                </div>
+                <div class="tool-badge scroll-animate">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🏪</div>
+                    <span>Shopify</span>
+                </div>
+                <div class="tool-badge scroll-animate">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">📈</div>
+                    <span>Google Analytics</span>
+                </div>
+                <div class="tool-badge scroll-animate">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">💾</div>
+                    <span>Google Drive</span>
+                </div>
+                <div class="tool-badge scroll-animate">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🔗</div>
+                    <span>Zapier</span>
+                </div>
+                <div class="tool-badge scroll-animate">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">📧</div>
+                    <span>Mailchimp</span>
+                </div>
+                <div class="tool-badge scroll-animate">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🎬</div>
+                    <span>Loom</span>
+                </div>
+                <div class="tool-badge scroll-animate">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">💼</div>
+                    <span>Monday.com</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container-wide">
+            <span class="section-accent justify-center inline-block w-full text-center">Work Samples</span>
+            <h2>Portfolio Highlights</h2>
+
+            <div class="portfolio-grid animate-stagger">
+                <div class="portfolio-item scroll-animate">
+                    <div class="portfolio-image">📊</div>
+                    <div class="portfolio-details">
+                        <h3>E-Commerce Growth</h3>
+                        <p>Increased product sales by 150% through optimized inventory management and customer service improvements.</p>
+                        <span class="portfolio-tag">E-Commerce</span>
+                        <span class="portfolio-tag">Strategy</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-item scroll-animate">
+                    <div class="portfolio-image">🎯</div>
+                    <div class="portfolio-details">
+                        <h3>Lead Gen Campaign</h3>
+                        <p>Executed targeted outreach campaign generating 200+ qualified leads and $50K in pipeline value.</p>
+                        <span class="portfolio-tag">Lead Generation</span>
+                        <span class="portfolio-tag">Sales</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-item scroll-animate">
+                    <div class="portfolio-image">⏱️</div>
+                    <div class="portfolio-details">
+                        <h3>Executive Support</h3>
+                        <p>Streamlined operations for busy CEO, recovering 15+ hours weekly through process optimization and delegation.</p>
+                        <span class="portfolio-tag">Executive</span>
+                        <span class="portfolio-tag">Operations</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-item scroll-animate">
+                    <div class="portfolio-image">🚀</div>
+                    <div class="portfolio-details">
+                        <h3>Business Systems</h3>
+                        <p>Designed and implemented integrated business systems improving team efficiency by 40%.</p>
+                        <span class="portfolio-tag">Systems</span>
+                        <span class="portfolio-tag">Automation</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-item scroll-animate">
+                    <div class="portfolio-image">💡</div>
+                    <div class="portfolio-details">
+                        <h3>Strategic Planning</h3>
+                        <p>Developed quarterly business roadmaps and execution plans for scaling from 6 to 7 figures.</p>
+                        <span class="portfolio-tag">Strategy</span>
+                        <span class="portfolio-tag">Growth</span>
+                    </div>
+                </div>
+
+                <div class="portfolio-item scroll-animate">
+                    <div class="portfolio-image">🤝</div>
+                    <div class="portfolio-details">
+                        <h3>Client Relations</h3>
+                        <p>Built and managed strategic partnerships, increasing customer lifetime value by 65%.</p>
+                        <span class="portfolio-tag">Relations</span>
+                        <span class="portfolio-tag">Growth</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container-wide">
+            <span class="section-accent justify-center inline-block w-full text-center">Feedback</span>
+            <h2>What Clients Say</h2>
+
+            <div class="testimonial-slider animate-stagger">
+                <div class="testimonial-card scroll-animate">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">
+                        Lealyn transformed how we manage our operations. In just 3 months, we recovered 20+ hours per week and scaled revenue by 40%. Professional, reliable, and truly exceptional.
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AJ</div>
+                        <div class="author-info">
+                            <h4>Alex Johnson</h4>
+                            <p>E-Commerce Founder</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card scroll-animate">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">
+                        As someone running a demanding executive role, having Lealyn manage my calendar and communications has been life-changing. Highly recommend!
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>Sarah Mitchell</h4>
+                            <p>CEO, Tech Startup</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card scroll-animate">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">
+                        The lead generation campaign Lealyn executed was spot-on. Quality leads, professional outreach, and measurable results. Worth every penny!
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RM</div>
+                        <div class="author-info">
+                            <h4>Robert Martinez</h4>
+                            <p>Sales Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container-wide">
+            <span class="section-accent justify-center inline-block w-full text-center">Get In Touch</span>
+            <h2>Let's Work Together</h2>
+
+            <div class="contact-content">
+                <p class="text-lg mb-8">
+                    Ready to elevate your business? I'm excited to explore how I can support your goals and drive meaningful results.
+                </p>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Service Interest</label>
+                        <input type="text" id="service" name="service" placeholder="e.g., Executive Support">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your project or needs..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-premium btn-primary w-full">Send Message</button>
+                </form>
+
+                <div class="mt-8 pt-8 border-t border-gray-700">
+                    <p class="text-secondary mb-6">Or connect with me directly:</p>
+                    <div class="social-links">
+                        <a href="mailto:hello@lealynlayosa.com" class="social-link" title="Email">✉️</a>
+                        <a href="#" class="social-link" title="LinkedIn">💼</a>
+                        <a href="#" class="social-link" title="Instagram">📱</a>
+                        <a href="#" class="social-link" title="Twitter">𝕏</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container-wide">
+            <p>&copy; 2024 Lealyn Layosa. All rights reserved.</p>
+            <p class="mt-2">Crafted with precision for premium business excellence</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll animations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.scroll-animate').forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+
+            // Create mailto link with form data
+            const mailtoLink = `mailto:hello@lealynlayosa.com?subject=Service Inquiry from ${encodeURIComponent(name)}&body=Name: ${encodeURIComponent(name)}%0DEmail: ${encodeURIComponent(email)}%0DService: ${encodeURIComponent(service)}%0D%0DMessage:%0D${encodeURIComponent(message)}`;
+            
+            window.location.href = mailtoLink;
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add subtle scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.borderBottomColor = 'rgba(16, 185, 129, 0.1)';
+            } else {
+                nav.style.borderBottomColor = 'rgba(148, 163, 184, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
